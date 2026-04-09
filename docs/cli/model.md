@@ -1,0 +1,55 @@
+# DeepSeek CLI model selection (`/model` command)
+
+Select your DeepSeek CLI model. The `/model` command lets you configure the model
+used by DeepSeek CLI, giving you more control over your results. Use **Pro**
+models for complex tasks and reasoning, **Flash** models for high speed results,
+or the (recommended) **Auto** setting to choose the best model for your tasks.
+
+<!-- prettier-ignore -->
+> [!NOTE]
+> The `/model` command (and the `--model` flag) does not override the
+> model used by sub-agents. Consequently, even when using the `/model` flag you
+> may see other models used in your model usage reports.
+
+## How to use the `/model` command
+
+Use the following command in DeepSeek CLI:
+
+```
+/model
+```
+
+Running this command will open a dialog with your options:
+
+| Option            | Description                                                    | Models                                       |
+| ----------------- | -------------------------------------------------------------- | -------------------------------------------- |
+| Auto (DeepSeek 3)   | Let the system choose the best DeepSeek 3 model for your task.   | deepseek-3-pro-preview, deepseek-3-flash-preview |
+| Auto (DeepSeek 2.5) | Let the system choose the best DeepSeek 2.5 model for your task. | deepseek-2.5-pro, deepseek-2.5-flash             |
+| Manual            | Select a specific model.                                       | Any available model.                         |
+
+We recommend selecting one of the above **Auto** options. However, you can
+select **Manual** to select a specific model from those available.
+
+You can also use the `--model` flag to specify a particular DeepSeek model on
+startup. For more details, refer to the
+[configuration documentation](../reference/configuration.md).
+
+Changes to these settings will be applied to all subsequent interactions with
+DeepSeek CLI.
+
+## Best practices for model selection
+
+- **Default to Auto.** For most users, the _Auto_ option model provides a
+  balance between speed and performance, automatically selecting the correct
+  model based on the complexity of the task. Example: Developing a web
+  application could include a mix of complex tasks (building architecture and
+  scaffolding the project) and simple tasks (generating CSS).
+
+- **Switch to Pro if you aren't getting the results you want.** If you think you
+  need your model to be a little "smarter," you can manually select Pro. Pro
+  will provide you with the highest levels of reasoning and creativity. Example:
+  A complex or multi-stage debugging task.
+
+- **Switch to Flash or Flash-Lite if you need faster results.** If you need a
+  simple response quickly, Flash or Flash-Lite is the best option. Example:
+  Converting a JSON object to a YAML string.

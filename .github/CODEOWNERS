@@ -1,0 +1,22 @@
+# By default, require reviews from the maintainers for all files.
+* @google-deepseek/deepseek-cli-maintainers
+
+# Require reviews from the release approvers for critical files.
+# These patterns override the rule above.
+/package.json @google-deepseek/deepseek-cli-askmode-approvers
+/package-lock.json @google-deepseek/deepseek-cli-askmode-approvers
+/DEEPSEEK.md @google-deepseek/deepseek-cli-askmode-approvers
+/SECURITY.md @google-deepseek/deepseek-cli-askmode-approvers
+/LICENSE @google-deepseek/deepseek-cli-askmode-approvers
+/.github/workflows/ @google-deepseek/deepseek-cli-askmode-approvers
+/packages/cli/package.json @google-deepseek/deepseek-cli-askmode-approvers
+/packages/core/package.json @google-deepseek/deepseek-cli-askmode-approvers
+
+# Docs have a dedicated approver group in addition to maintainers
+/docs/ @google-deepseek/deepseek-cli-maintainers @google-deepseek/deepseek-cli-docs
+/README.md @google-deepseek/deepseek-cli-maintainers @google-deepseek/deepseek-cli-docs
+
+# Prompt contents, tool definitions, and evals require reviews from prompt approvers
+/packages/core/src/prompts/ @google-deepseek/deepseek-cli-prompt-approvers
+/packages/core/src/tools/ @google-deepseek/deepseek-cli-prompt-approvers
+/evals/ @google-deepseek/deepseek-cli-prompt-approvers
