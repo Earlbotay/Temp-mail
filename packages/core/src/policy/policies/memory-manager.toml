@@ -1,0 +1,20 @@
+# Policy for Memory Manager Agent
+# Allows the save_memory agent to manage memories in the ~/.deepseek/ folder.
+
+# Read-only tools: allow access to anything under .deepseek/
+[[rule]]
+subagent = "save_memory"
+toolName = ["read_file", "list_directory", "glob", "grep_search"]
+decision = "allow"
+priority = 100
+argsPattern = "(^|.*/)\\.deepseek/.*"
+denyMessage = "Memory Manager is only allowed to access the .deepseek folder."
+
+# Write tools: only allow .md files under .deepseek/
+[[rule]]
+subagent = "save_memory"
+toolName = ["write_file", "replace"]
+decision = "allow"
+priority = 100
+argsPattern = "(^|.*/)\\.deepseek/.*\\.md\""
+denyMessage = "Memory Manager is only allowed to write .md files in the .deepseek folder."
